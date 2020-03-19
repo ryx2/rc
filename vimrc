@@ -21,6 +21,8 @@ Plug 'vim-airline/vim-airline'
 
 Plug 'scrooloose/syntastic'
 
+Plug 'dpelle/vim-LanguageTool'
+
 call plug#end()
 
 set formatoptions-=tc
@@ -29,6 +31,8 @@ set spell spelllang=en_us
 
 hi clear SpellBad
 hi SpellBad ctermfg=red
+
+let g:languagetool_jar='/home/raymond/languagetool/languagetool-standalone/target/LanguageTool-4.9-SNAPSHOT/LanguageTool-4.9-SNAPSHOT/languagetool-         commandline.jar'
 
 try
 source ~/.vim_runtime/my_configs.vim
