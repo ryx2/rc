@@ -32,7 +32,10 @@ set spell spelllang=en_us
 hi clear SpellBad
 hi SpellBad ctermfg=red
 
-let g:languagetool_jar='/home/raymond/languagetool/languagetool-standalone/target/LanguageTool-4.9-SNAPSHOT/LanguageTool-4.9-SNAPSHOT/languagetool-         commandline.jar'
+let g:languagetool_jar='/home/raymond/languagetool/languagetool-standalone/target/LanguageTool-4.9-SNAPSHOT/LanguageTool-4.9-SNAPSHOT/languagetool-commandline.jar'
+
+set number relativenumber
+set nu rnu
 
 try
 source ~/.vim_runtime/my_configs.vim
