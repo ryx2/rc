@@ -37,6 +37,9 @@ let g:languagetool_jar='/home/raymond/languagetool/languagetool-standalone/targe
 set number relativenumber
 set nu rnu
 
+"this allows u to select text via shift V, ctrl C to put it in the system clipboard. remember to install vim-gtk3 beforehand
+vnoremap <C-c> "+yy 
+
 try
 source ~/.vim_runtime/my_configs.vim
 catch
