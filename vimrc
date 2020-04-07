@@ -23,6 +23,8 @@ Plug 'scrooloose/syntastic'
 
 Plug 'dpelle/vim-LanguageTool'
 
+Plug 'junegunn/fzf'
+
 call plug#end()
 
 set formatoptions-=tc
