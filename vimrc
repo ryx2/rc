@@ -7,6 +7,7 @@ source ~/.vim_runtime/vimrcs/extended.vim
 
 call plug#begin('~/.vim/plugged')
 
+" ctrl + / to comment on all code file types
 Plug 'tomtom/tcomment_vim'
 
 Plug 'valloric/youcompleteme'
@@ -21,9 +22,11 @@ Plug 'vim-airline/vim-airline'
 
 Plug 'scrooloose/syntastic'
 
+" :languageToolCheck to highlight grammer 
 Plug 'dpelle/vim-LanguageTool'
 
-Plug 'junegunn/fzf'
+" use :FZF to search
+Plug 'junegunn/fzf' 
 
 call plug#end()
 
