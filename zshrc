@@ -664,13 +664,13 @@ function journal () { # auto make a journal entry with the current name
         cd /home/raymond/journal
     else
         temp="$@"
-        v "/home/raymond/journal/"$(date +"%m_%d_%Y")"_${temp// /_}"
+        v "/home/raymond/journal/"$(date +"%Y_%m_%d")"_${temp// /_}"
     fi
  }
 
 function book () { # make a book review with the current name
     temp="$@"
-    v "/home/raymond/journal/book_reviews/"$(date +"%m_%d_%Y")"_${temp// /_}"
+    v "/home/raymond/journal/book_reviews/"$(date +"%Y_%m_%d")"_${temp// /_}"
 }
 
 function desk (){
