@@ -687,5 +687,12 @@ function spi () { #sudo pip3 install
     sudo pip3 install "$@"
 }
 
+function sau() { # sudo apt update
+    sudo apt update
+}
+
+alias bhost="browser-sync start --server --files ." # this hosts your website on localhost:3000
+
+
 # Load zsh-syntax-highlighting; should be last.
 # source /home/raymond/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
