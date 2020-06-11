@@ -267,6 +267,7 @@ alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CFh'
 alias lr='ls -ltrh'
+alias lra='ls -ltrha'
 
 EDITOR='vim'
 
