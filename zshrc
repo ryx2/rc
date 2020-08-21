@@ -712,3 +712,21 @@ alias qrcp="/home/raymond/go/bin/qrcp"
 
 # Load zsh-syntax-highlighting; should be last.
 # source /home/raymond/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+eval $(thefuck --alias)
+
+alias hackearth="/home/raymond/Downloads/eDEX-UI.Linux.x86_64.AppImage"
+
+alias screenkey="/home/raymond/Downloads/screenkey/screenkey"
+
+function elastic(){ # run elastic search
+    /home/raymond/Downloads/elasticsearch-7.7.1/bin/elasticsearch 
+}
+
+function bpytop(){ #python bpytop
+    python /home/raymond/bpytop/bpytop.py 
+}
+
+function da(){ #deactivate
+    deactivate
+}
