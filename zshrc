@@ -267,6 +267,7 @@ alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CFh'
 alias lr='ls -ltrh'
+alias lra='ls -ltrha'
 
 EDITOR='vim'
 
@@ -485,7 +486,7 @@ function everyone(){ #change the file to chmod 777
 }
 
 function itmine(){ #change the file owner to me
-    sudo chown raymond:raymond $1
+    sudo chown -R raymond:raymond $1
 }
 
 function fp(){ # get file path of the nth most recently updated file, and put it on the clipiboard
@@ -693,6 +694,21 @@ function sau() { # sudo apt update
 
 alias bhost="browser-sync start --server --files ." # this hosts your website on localhost:3000
 
+function deneread(){ # deneread gcp 
+    gcloud beta compute ssh --zone "us-central1-a" "deneread" --project "deneread"
+}
+
+function denread(){
+    # gcloud beta compute ssh --zone "us-central1-a" "denread" --project "deneread"
+    gcloud beta compute ssh --zone "us-central1-a" "denread" --project "alien-trainer-257703"
+
+}
+
+function ddev(){
+    gcloud beta compute ssh --zone "us-central1-a" "denread-dev" --project "deneread"
+}
+
+alias qrcp="/home/raymond/go/bin/qrcp"
 
 # Load zsh-syntax-highlighting; should be last.
 # source /home/raymond/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
