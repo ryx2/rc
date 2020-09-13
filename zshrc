@@ -266,7 +266,10 @@ fi
 alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CFh'
-alias lr='ls -ltrh'
+alias lr='ls -ltrh' 
+function lrr(){
+    ls -ltrhF | tail -5 > /dev/stderr 
+} 
 alias lra='ls -ltrha'
 
 EDITOR='vim'
@@ -323,11 +326,11 @@ function fixscroll(){ #fix problem where scroll doesn't scroll up but just cycle
 }
 
 #custom aliases
-alias python='python3'
+alias python='/usr/bin/python3'
 alias spyder='spyder3'
 alias ppath='echo $PYTHONPATH'
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e" # does ps aux and searches for the next word in the command, and returns all hits. ex: psg bash returns all bash scripts currently running as detected in ps aux and displays just those lines
-alias pycharm="bash /home/raymond/Downloads/pycharm-community-2019.3.3/bin/pycharm.sh" 
+alias pycharm="bash /home/raymond/Downloads/pycharm-professional-2020.1/pycharm-2020.1/bin/pycharm.sh" 
 alias imagej="/home/raymond/Downloads/ImageJ/ImageJ &"
 
 #source ~/deep-rl-research/setup_env.bash 
@@ -631,7 +634,7 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
  # Use lf to switch directories and bind it to ctrl-o
- function lfcd () { # use lf to go to a location
+ function lfcd () { # use lf to go to a location, wget https://github.com/gokcehan/lf/releases/download/r6/lf-linux-amd64.tar.gz -O lf-linux-amd64.tar.gz
      tmp="$(mktemp)"
      lf -last-dir-path="$tmp" "$@"
      if [ -f "$tmp" ]; then
@@ -729,4 +732,19 @@ function bpytop(){ #python bpytop
 
 function da(){ #deactivate
     deactivate
+}
+
+function s(){ # search inside files for something
+    
+    if [[ $# == 1 ]]; then  # by default; search everything
+        rg -i -g "" "$1" -M 300 --max-columns-preview --stats > /dev/stderr
+    elif [[ $# == 2 ]]; then  # by default; search everything
+        rg -i -g "$2" "$1" -M 300 --max-columns-preview --stats > /dev/stderr
+    elif [[ $# == 3 ]]; then  # by default; search everything
+        rg -i -g "$2" "$1" --max-depth "$3" -M 300 --max-columns-preview --stats > /dev/stderr
+    else  # by default; search everything
+        RED='\033[0;31m'
+        NC="\033[0m" #no color
+        echo "you ${RED}fool!${NC} search syntax is: s regex [file type] [depth (1 indexed)]"
+    fi
 }
