@@ -515,11 +515,10 @@ function autopy(){ #this does file formatting for python
 
 function v(){ # what will i do with all that time not needing the 'im' characters 
     if [[ $# -ne 1 ]]; then
-        echo "how about you try editing exactly 1 file"
-    # elif [[ $1 == *".csv" ]] || [[ $1 == *".xlsx" ]] || [[ $1 == *".xlsm" ]]; then
-         # sc-im "$1"
+        temp="$@"
+        vim "${temp// /_}"
     else
-        $EDITOR "$1"
+        vim "$1"
         # if [[ $1 == *".py" ]]; then
         #     read -q "response?seems like a python file, wana autopep8 reformat? [y/N] "
         #         case "$response" in
