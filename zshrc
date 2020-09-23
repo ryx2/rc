@@ -68,7 +68,7 @@ ZSH_THEME="bullet-train"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git autopep8 command-not-found pip python web-search zsh-autosuggestions fast-syntax-highlighting 
+  git autopep8 command-not-found pip python web-search zsh-autosuggestions fast-syntax-highlighting k 
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -267,6 +267,7 @@ alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CFh'
 alias lr='ls -ltrh' 
+alias kr='k --sort time --reverse --no-vcs --human'
 function lrr(){
     ls -ltrhF | tail -5 > /dev/stderr 
 } 
