@@ -6,7 +6,7 @@ source ~/.vim_runtime/vimrcs/plugins_config.vim
 source ~/.vim_runtime/vimrcs/extended.vim
 
 call plug#begin('~/.vim/plugged')
-
+" install vim awesome before copying vimrc
 " ctrl + / to comment on all code file types
 Plug 'tomtom/tcomment_vim'
 
@@ -27,6 +27,8 @@ Plug 'dpelle/vim-LanguageTool'
 
 " use :FZF to search
 Plug 'junegunn/fzf' 
+
+Plug 'dense-analysis/ale'
 
 call plug#end()
 

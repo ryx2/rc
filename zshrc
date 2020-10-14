@@ -748,3 +748,6 @@ function s(){ # search inside files for something
         echo "you ${RED}fool!${NC} search syntax is: s regex [file type] [depth (1 indexed)]"
     fi
 }
+
+eval "$(/home/raymond/anaconda3/bin/conda shell.zsh hook)"
+conda deactivate 
