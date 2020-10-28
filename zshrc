@@ -1,4 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Enable Powerlevel10k instant prompt. Should stay close to the top of $HOME/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -9,7 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/raymond/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 #export NVM_DIR="$HOME/.nvm"
 #. "$(brew --prefix nvm)/nvm.sh"
@@ -25,7 +25,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# a theme from this variable instead of looking in $HOME/.oh-my-zsh/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
@@ -71,8 +71,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Standard plugins can be found in $HOME/.oh-my-zsh/plugins/*
+# Custom plugins may be added to $HOME/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
@@ -101,7 +101,7 @@ export EDITOR='vim'
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+# export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -109,9 +109,9 @@ export EDITOR='vim'
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-# ~/.bashrc: executed by bash(1) for non-login shells.
+# alias zshconfig="mate $HOME/.zshrc"
+# alias ohmyzsh="mate $HOME/.oh-my-zsh"
+# $HOME/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -257,7 +257,7 @@ fi
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    test -r $HOME/.dircolors && eval "$(dircolors -b $HOME/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
@@ -298,11 +298,11 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
+# $HOME/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f $HOME/.bash_aliases ]; then
+    . $HOME/.bash_aliases
 fi
 
 export HISTFILESIZE=20000
@@ -312,7 +312,7 @@ export HISTSIZE=10000
 #setopt cmdhist
 setopt appendhistory autocd nomatch autopushd pushdignoredups promptsubst
 
-export PYTHONSTARTUP=~/tools/python_terminal.py
+export PYTHONSTARTUP=$HOME/tools/python_terminal.py
 
 function feh(){ # feh and print the path out of the current image when u hit 1
     if [[ $# -eq 0 ]]; then
@@ -320,10 +320,6 @@ function feh(){ # feh and print the path out of the current image when u hit 1
     else
         /usr/bin/feh --action1 "echo $PWD/%n" --keep-zoom-vp "$@" 
     fi
-}
-
-regular(){ #default python path
-	export PYTHONPATH=/home/raymond/models/research:/home/raymond/models/research/slim
 }
 
 function clearpath(){ #reset python path to ""
@@ -339,10 +335,10 @@ alias python='/usr/bin/python3'
 alias spyder='spyder3'
 alias ppath='echo $PYTHONPATH'
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e" # does ps aux and searches for the next word in the command, and returns all hits. ex: psg bash returns all bash scripts currently running as detected in ps aux and displays just those lines
-alias pycharm="bash /home/raymond/Downloads/pycharm-professional-2020.1/pycharm-2020.1/bin/pycharm.sh" 
-alias imagej="/home/raymond/Downloads/ImageJ/ImageJ &"
+alias pycharm="bash $HOME/Downloads/pycharm-professional-2020.1/pycharm-2020.1/bin/pycharm.sh" 
+alias imagej="$HOME/Downloads/ImageJ/ImageJ &"
 
-#source ~/deep-rl-research/setup_env.bash 
+#source $HOME/deep-rl-research/setup_env.bash 
 #export PYTHONPATH=$PYTHONPATH:/home/alberba1/multiagent_particle_envs/ 
 #export PYTHONPATH=$PYTHONPATH:/home/alberba1/maddpg
 
@@ -378,7 +374,7 @@ function findf (){ # find file (exact name) recursively in my directory accepts 
 
 #mount script
 #	sudo umount -vlf /mnt/loc
-#	sudo sshfs -o reconnect,allow_other,nonempty,IdentityFile=~/.ssh/id_rsa,idmap=user raymond@raymond:/ /mnt/loc/ 
+#	sudo sshfs -o reconnect,allow_other,nonempty,IdentityFile=$HOME/.ssh/id_rsa,idmap=user raymond@raymond:/ /mnt/loc/ 
 
 function findf (){ # find file (exact name) recursively in my directory accepts regex
     find . -type f -name $@ 
@@ -438,7 +434,7 @@ mkcd (){
 }
 
 function pz(){ #print all zshrc functions
-    grep "^function" ~/.zshrc | sort | cut -d' ' -f2- | grep "()" #grep "^function"
+    grep "^function" $HOME/.zshrc | sort | cut -d' ' -f2- | grep "()" #grep "^function"
 }
 
 function lock(){
@@ -454,11 +450,11 @@ function tnew(){ # new tmux session with the input name
 }
 
 function vz(){
-	vim ~/.zshrc
+	vim $HOME/.zshrc
 }
 
 function sz(){
-	source ~/.zshrc
+	source $HOME/.zshrc
 }
 
 function pp(){ #echo "$PYTHONPATH" > /dev/stderr
@@ -555,10 +551,10 @@ function countem(){ #count how many items are in the current dir
 
 
 function vv(){ #edit vimrc
-	vim ~/.vimrc
+	vim $HOME/.vimrc
 }
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
 function fv(){ #fzf and then vim that file
     v $(fzf)
@@ -664,7 +660,7 @@ function annoserver (){ # go to the kmt anno server
 }
 
 function theme (){
-    v ~/.oh-my-zsh/custom/themes/bullet-train.zsh-theme
+    v $HOME/.oh-my-zsh/custom/themes/bullet-train.zsh-theme
 }
 
  function remove(){ # rm needs to be safer
@@ -673,16 +669,16 @@ function theme (){
 
 function journal () { # auto make a journal entry with the current name
     if [[ $# -eq 0 ]]; then
-        cd /home/raymond/journal
+        cd $HOME/journal
     else
         temp="$@"
-        v "/home/raymond/journal/"$(date +"%Y_%m_%d")"_${temp// /_}"
+        v "$HOME/journal/"$(date +"%Y_%m_%d")"_${temp// /_}"
     fi
  }
 
 function book () { # make a book review with the current name
     temp="$@"
-    v "/home/raymond/journal/book_reviews/"$(date +"%Y_%m_%d")"_${temp// /_}"
+    v "$HOME/journal/book_reviews/"$(date +"%Y_%m_%d")"_${temp// /_}"
 }
 
 function desk (){
@@ -719,24 +715,24 @@ function ddev(){
     gcloud beta compute ssh --zone "us-central1-a" "denread-dev" --project "deneread"
 }
 
-alias qrcp="/home/raymond/go/bin/qrcp"
+alias qrcp="$HOME/go/bin/qrcp"
 
 # Load zsh-syntax-highlighting; should be last.
-# source /home/raymond/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval $(thefuck --alias)
 
-alias hackearth="/home/raymond/Downloads/eDEX-UI.Linux.x86_64.AppImage"
+alias hackearth="$HOME/Downloads/eDEX-UI.Linux.x86_64.AppImage"
 
-alias screenkey="/home/raymond/Downloads/screenkey/screenkey"
+alias screenkey="$HOME/Downloads/screenkey/screenkey"
 
 function elastic(){ # run elastic search
-    /home/raymond/Downloads/elasticsearch-7.7.1/bin/elasticsearch 
+    $HOME/Downloads/elasticsearch-7.7.1/bin/elasticsearch 
 }
 
-function bpytop(){ #python bpytop
-    python /home/raymond/bpytop/bpytop.py 
-}
+# function bpytop(){ #python bpytop
+#     python $HOME/bpytop/bpytop.py 
+# }
 
 function da(){ #deactivate
     deactivate
@@ -746,9 +742,9 @@ function s(){ # search inside files for something
     
     if [[ $# == 1 ]]; then  # by default; search everything
         rg -i -g "" "$1" -M 300 --max-columns-preview --stats > /dev/stderr
-    elif [[ $# == 2 ]]; then  # by default; search everything
+    elif [[ $# == 2 ]]; then  # search string, file type
         rg -i -g "$2" "$1" -M 300 --max-columns-preview --stats > /dev/stderr
-    elif [[ $# == 3 ]]; then  # by default; search everything
+    elif [[ $# == 3 ]]; then  # search string, file type, max depth
         rg -i -g "$2" "$1" --max-depth "$3" -M 300 --max-columns-preview --stats > /dev/stderr
     else  # by default; search everything
         RED='\033[0;31m'
@@ -757,8 +753,12 @@ function s(){ # search inside files for something
     fi
 }
 
-eval "$(/home/raymond/anaconda3/bin/conda shell.zsh hook)"
-conda deactivate 
+# eval "$($HOME/anaconda3/bin/conda shell.zsh hook)"
+# conda deactivate 
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit $HOME/.p10k.zsh.
+[[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
+source $HOME/powerlevel10k/powerlevel10k.zsh-theme
+
+# not sure why on work laptop, fast syntax highlighting doesn't work
+source $HOME/.oh-my-zsh/custom/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
