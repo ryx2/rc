@@ -76,7 +76,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git autopep8 command-not-found pip python web-search zsh-autosuggestions fast-syntax-highlighting k 
+  git autopep8 command-not-found pip python web-search zsh-autosuggestions fast-syntax-highlighting  
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -729,8 +729,6 @@ alias qrcp="$HOME/go/bin/qrcp"
 # Load zsh-syntax-highlighting; should be last.
 # source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-eval $(thefuck --alias)
-
 alias hackearth="$HOME/Downloads/eDEX-UI.Linux.x86_64.AppImage"
 
 alias screenkey="$HOME/Downloads/screenkey/screenkey"
@@ -767,7 +765,9 @@ function s(){ # search inside files for something
 
 # To customize prompt, run `p10k configure` or edit $HOME/.p10k.zsh.
 [[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
-source $HOME/powerlevel10k/powerlevel10k.zsh-theme
+# source $HOME/powerlevel10k/powerlevel10k.zsh-theme
 
 # not sure why on work laptop, fast syntax highlighting doesn't work
 source $HOME/.oh-my-zsh/custom/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
