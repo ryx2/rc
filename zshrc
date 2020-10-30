@@ -519,33 +519,25 @@ function autopy(){ #this does file formatting for python
 }
 
 function v(){ # what will i do with all that time not needing the 'im' characters. this also concats all of the words into one title separated by underscored 
-    if [[ $# -ne 1 ]]; then
-        temp="$@"
-        vim "${temp// /_}"
-    else
-        vim "$1"
-        # if [[ $1 == *".py" ]]; then
-        #     read -q "response?seems like a python file, wana autopep8 reformat? [y/N] "
-        #         case "$response" in
-        #             [yY][eE][sS]|[yY])
-        #                  autopy $1
-        #                  echo "autopep8ed."
-        #                  ;;
-        #             *)
-        #                 echo
-        #                 ;;
-        #         esac
-        # fi
+    temp="$@"
+    spaceless="${temp// /_}"
+    if ! [[ $spaceless == *"."* ]]; then # if there is no file extension
+        if [ ! -f  $spaceless ]; then # and the file doesnt exist
+            spaceless="$spaceless".txt # then make this new file a text file
+        fi
     fi
+    vim "$spaceless"
 }
 
 function vt(){ # what will i do with all that time not needing the 'im' characters. this also concats all of the words into one title separated by underscored. this version also adds the date in the beginning of the file 
-    if [[ $# -ne 1 ]]; then
-        temp="$@"
-        vim $(date +"%Y_%m_%d")_"${temp// /_}"
-    else
-        vim $(date +"%Y_%m_%d")_"$1"
+    temp="$@"
+    spaceless="${temp// /_}"
+    if ! [[ $spaceless == *"."* ]]; then # if there is no file extension
+        if [ ! -f  $spaceless ]; then # and the file doesnt exist
+            spaceless="$spaceless".txt # then make this new file a text file
+        fi
     fi
+    vim $(date +"%Y_%m_%d")_"$spaceless"
 }
 
 function countem(){ #count how many items are in the current dir 
@@ -681,13 +673,13 @@ function journal () { # auto make a journal entry with the current name
         cd $HOME/journal
     else
         temp="$@"
-        v "$HOME/journal/"$(date +"%Y_%m_%d")"_${temp// /_}"
+        v "$HOME/journal/"$(date +"%Y_%m_%d")"_${temp// /_}".txt
     fi
  }
 
 function book () { # make a book review with the current name
     temp="$@"
-    v "$HOME/journal/book_reviews/"$(date +"%Y_%m_%d")"_${temp// /_}"
+    v "$HOME/journal/book_reviews/"$(date +"%Y_%m_%d")"_${temp// /_}".txt
 }
 
 function desk (){
@@ -771,3 +763,5 @@ function s(){ # search inside files for something
 source $HOME/.oh-my-zsh/custom/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source $HOME/work_notes/rcs/google.zshrc 
