@@ -518,7 +518,7 @@ function autopy(){ #this does file formatting for python
     autopep8 --in-place --aggressive --aggressive --max-line-length=100 $1 #  > /dev/stderr
 }
 
-function v(){ # what will i do with all that time not needing the 'im' characters 
+function v(){ # what will i do with all that time not needing the 'im' characters. this also concats all of the words into one title separated by underscored 
     if [[ $# -ne 1 ]]; then
         temp="$@"
         vim "${temp// /_}"
@@ -536,6 +536,15 @@ function v(){ # what will i do with all that time not needing the 'im' character
         #                 ;;
         #         esac
         # fi
+    fi
+}
+
+function vt(){ # what will i do with all that time not needing the 'im' characters. this also concats all of the words into one title separated by underscored. this version also adds the date in the beginning of the file 
+    if [[ $# -ne 1 ]]; then
+        temp="$@"
+        vim $(date +"%Y_%m_%d")_"${temp// /_}"
+    else
+        vim $(date +"%Y_%m_%d")_"$1"
     fi
 }
 
@@ -742,7 +751,7 @@ function s(){ # search inside files for something
     
     if [[ $# == 1 ]]; then  # by default; search everything
         rg -i -g "" "$1" -M 300 --max-columns-preview --stats > /dev/stderr
-    elif [[ $# == 2 ]]; then  # search string, file type
+    elif [[ $# == 2 ]]; then  # search string, file type (ex: "*.py")
         rg -i -g "$2" "$1" -M 300 --max-columns-preview --stats > /dev/stderr
     elif [[ $# == 3 ]]; then  # search string, file type, max depth
         rg -i -g "$2" "$1" --max-depth "$3" -M 300 --max-columns-preview --stats > /dev/stderr
