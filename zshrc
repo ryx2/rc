@@ -748,7 +748,8 @@ function s(){ # search inside files for something
     else  # by default; search everything
         RED='\033[0;31m'
         NC="\033[0m" #no color
-        echo "you ${RED}fool!${NC} search syntax is: s regex [file type] [depth (1 indexed)]"
+        echo "you ${RED}fool!${NC} search syntax is: s [search term] [file type] [depth (1 indexed)]"
+        echo "if you are using regex for search term or file type use double quote marks"
     fi
 }
 
