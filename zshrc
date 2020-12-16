@@ -149,10 +149,10 @@ setopt HIST_VERIFY               # Don't execute immediately upon history expans
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 export SAVEHIST=$HISTSIZE
 
-autoload -U compinit
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
+# autoload -U compinit
+# zmodload zsh/complist
+# compinit
+# _comp_options+=(globdots)		# Include hidden files.
 
 # Enable approximate completions
 #zstyle ':completion:*' completer _complete _ignored _approximate
@@ -729,9 +729,9 @@ function elastic(){ # run elastic search
     $HOME/Downloads/elasticsearch-7.7.1/bin/elasticsearch 
 }
 
-# function bpytop(){ #python bpytop
-#     python $HOME/bpytop/bpytop.py 
-# }
+function bpytop(){ #python bpytop
+    python $HOME/bpytop/bpytop.py 
+}
 
 function da(){ #deactivate
     deactivate
