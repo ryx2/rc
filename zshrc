@@ -753,6 +753,12 @@ function s(){ # search inside files for something
     fi
 }
 
+function mt(){ # what will i do with all that time not needing the 'im' characters. this also concats all of the words into one title separated by underscored. this version also adds the date in the beginning of the file 
+    temp="$@"
+    spaceless="${temp// /_}"
+    mkdir $(date +"%Y_%m_%d")_"$spaceless"
+}
+
 # eval "$($HOME/anaconda3/bin/conda shell.zsh hook)"
 # conda deactivate 
 
