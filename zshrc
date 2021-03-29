@@ -331,7 +331,7 @@ function fixscroll(){ #fix problem where scroll doesn't scroll up but just cycle
 }
 
 #custom aliases
-alias python='/usr/bin/python3'
+
 alias spyder='spyder3'
 alias ppath='echo $PYTHONPATH'
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e" # does ps aux and searches for the next word in the command, and returns all hits. ex: psg bash returns all bash scripts currently running as detected in ps aux and displays just those lines
