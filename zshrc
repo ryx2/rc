@@ -772,3 +772,7 @@ source $HOME/.oh-my-zsh/custom/plugins/fast-syntax-highlighting/fast-syntax-high
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source $HOME/work_notes/rcs/google.zshrc 
+source $HOME/mac_notes/mac.zshrc 
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
