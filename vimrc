@@ -41,9 +41,6 @@ hi SpellBad ctermfg=red
 
 let g:languagetool_jar='/home/raymond/languagetool/languagetool-standalone/target/LanguageTool-4.9-SNAPSHOT/LanguageTool-4.9-SNAPSHOT/languagetool-commandline.jar'
 
-set number relativenumber
-set nu rnu
-
 "this allows u to select text via shift V, ctrl C to put it in the system clipboard. remember to install vim-gtk3 beforehand
 vnoremap <C-c> "+yy 
 
