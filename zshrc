@@ -314,6 +314,10 @@ setopt appendhistory autocd nomatch autopushd pushdignoredups promptsubst
 
 export PYTHONSTARTUP=$HOME/tools/python_terminal.py
 
+function a(){ # afplay shortcut
+    afplay $1
+}
+
 function feh(){ # feh and print the path out of the current image when u hit 1
     if [[ $# -eq 0 ]]; then
         /usr/bin/feh --action1 "echo $PWD/%n" --keep-zoom-vp  
@@ -337,6 +341,7 @@ alias ppath='echo $PYTHONPATH'
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e" # does ps aux and searches for the next word in the command, and returns all hits. ex: psg bash returns all bash scripts currently running as detected in ps aux and displays just those lines
 alias pycharm="bash $HOME/Downloads/pycharm-professional-2020.1/pycharm-2020.1/bin/pycharm.sh" 
 alias imagej="$HOME/Downloads/ImageJ/ImageJ &"
+alias python='python3'
 
 #source $HOME/deep-rl-research/setup_env.bash 
 #export PYTHONPATH=$PYTHONPATH:/home/alberba1/multiagent_particle_envs/ 
@@ -494,7 +499,7 @@ function everyone(){ #change the file to chmod 777
 }
 
 function itmine(){ #change the file owner to me
-    sudo chown -R raymond:raymond $1
+    sudo chown -R raymondxu:raymondxu $1
 }
 
 function fp(){ # get file path of the nth most recently updated file, and put it on the clipiboard
@@ -507,6 +512,11 @@ function fp(){ # get file path of the nth most recently updated file, and put it
     split=$(echo $file | awk '{print $NF}')
     echo `pwd`'/'$split 
     printf `pwd`'/'$split | xsel -i --clipboard
+}
+
+function nth() {
+  N=$1
+  find "$(pwd)" -maxdepth 1 -type f -exec stat -f "%m %N" {} + | sort -rn | awk -v N="$N" 'NR == N { print substr($0, index($0,$2)) }'
 }
 
 function vid2im(){
