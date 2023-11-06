@@ -305,8 +305,8 @@ if [ -f $HOME/.bash_aliases ]; then
     . $HOME/.bash_aliases
 fi
 
-export HISTFILESIZE=20000
-export HISTSIZE=10000
+export HISTFILESIZE=200000
+export HISTSIZE=100000
 #setopt histappend
 # Combine multiline commands into one in history
 #setopt cmdhist
@@ -335,7 +335,7 @@ function fixscroll(){ #fix problem where scroll doesn't scroll up but just cycle
 }
 
 #custom aliases
-
+alias python='python3'
 alias spyder='spyder3'
 alias ppath='echo $PYTHONPATH'
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e" # does ps aux and searches for the next word in the command, and returns all hits. ex: psg bash returns all bash scripts currently running as detected in ps aux and displays just those lines
@@ -786,3 +786,6 @@ source $HOME/mac_notes/mac.zshrc
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Setup go/hi #!>>HI<<!#
+source /etc/bash.bashrc.d/shell_history_forwarder.sh #!>>HI<<!#
