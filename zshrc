@@ -789,3 +789,4 @@ source $HOME/mac_notes/mac.zshrc
 
 # Setup go/hi #!>>HI<<!#
 source /etc/bash.bashrc.d/shell_history_forwarder.sh #!>>HI<<!#
+export PATH="$PATH:/opt/nvim-linux64/bin"
