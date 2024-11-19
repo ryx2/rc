@@ -687,6 +687,15 @@ function journal () { # auto make a journal entry with the current name
     fi
  }
 
+ function jre () { # auto make a real estate journal entry with the current name
+     if [[ $# -eq 0 ]]; then
+         cd $HOME/journal/real_estate_summarizer_startup_idea
+     else
+         temp="$@"
+         v "$HOME/journal/real_estate_summarizer_startup_idea/"$(date +"%Y_%m_%d")"_${temp// /_}".txt
+     fi
+  }
+
 function book () { # make a book review with the current name
     temp="$@"
     v "$HOME/journal/book_reviews/"$(date +"%Y_%m_%d")"_${temp// /_}".txt
@@ -777,7 +786,7 @@ function mt(){ # what will i do with all that time not needing the 'im' characte
 # source $HOME/powerlevel10k/powerlevel10k.zsh-theme
 
 # not sure why on work laptop, fast syntax highlighting doesn't work
-source $HOME/.oh-my-zsh/custom/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source $HOME/.oh-my-zsh/custom/plugins/fast-syntax-highlighting/F-Sy-H.plugin.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -790,3 +799,17 @@ source $HOME/mac_notes/mac.zshrc
 # Setup go/hi #!>>HI<<!#
 source /etc/bash.bashrc.d/shell_history_forwarder.sh #!>>HI<<!#
 export PATH="$PATH:/opt/nvim-linux64/bin"
+
+PATH=~/.console-ninja/.bin:$PATH
+# bun completions
+[ -s "/Users/raymondxu/.bun/_bun" ] && source "/Users/raymondxu/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Created by `pipx` on 2024-11-16 02:25:33
+export PATH="$PATH:/Users/raymondxu/.local/bin"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export HOMEBREW_NO_AUTO_UPDATE=1

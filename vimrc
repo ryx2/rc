@@ -10,8 +10,6 @@ call plug#begin('~/.vim/plugged')
 " ctrl + / to comment on all code file types
 Plug 'tomtom/tcomment_vim'
 
-Plug 'valloric/youcompleteme'
-
 Plug 'honza/vim-snippets'
 
 Plug 'ervandew/supertab'
