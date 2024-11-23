@@ -813,3 +813,13 @@ export PATH="$PATH:/Users/raymondxu/.local/bin"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export HOMEBREW_NO_AUTO_UPDATE=1
+
+gacp() {
+    if [ -z "$1" ]; then
+        echo "Please provide a commit message"
+        return 1
+    fi
+    git add .
+    git commit -m "$1"
+    git push
+}
